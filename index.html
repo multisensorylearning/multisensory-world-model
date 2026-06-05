@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Project Title</title>
-  <meta name="description" content="Project website template">
+  <title>Multisensory Continual Learning</title>
+  <meta name="description" content="Anonymous project page for multisensory continual learning in robot manipulation.">
   <link rel="stylesheet" href="style.css">
   <script>if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark-mode-pending')</script>
   <style>.dark-mode-pending body{background:#000;color:#f5f5f7}</style>
 </head>
-<body>
+<body class="paper-page">
   <nav class="nav-top">
     <div class="nav-inner">
       <a href="#hero" class="nav-link nav-home">Home</a>
       <a href="#abstract" class="nav-link">Abstract</a>
       <a href="#method" class="nav-link">Method</a>
       <a href="#results" class="nav-link">Results</a>
-      <a href="#bibtex" class="nav-link">BibTeX</a>
+      <a href="#rollouts" class="nav-link">Rollouts</a>
+      <a href="#why-ft" class="nav-link">Why F/T?</a>
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
         <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -24,258 +25,147 @@
     </div>
   </nav>
 
-  <section id="hero" class="hero snap-section">
+  <section id="hero" class="hero snap-section paper-hero">
     <div class="hero-inner">
+      <p class="venue-label">Anonymous CoRL 2026 Submission</p>
       <h1 class="hero-title" id="hero-title">
-        <span class="title-p1">Project Title</span>
-        <span class="title-p2-wrap"><span class="title-p2">Project Subtitle</span></span>
+        <span class="title-p1">Multisensory Continual Learning</span>
+        <span class="title-p2-wrap"><span class="title-p2">Adapting Pretrained Visuomotor Policies to Force</span></span>
       </h1>
-      <div class="hero-authors">
-        <a>Author One</a>,
-        <a>Author Two</a>,
-        <a>Author Three</a>,
-        <a>Author Four</a>
-      </div>
-      <div class="hero-affiliation">
-        <a>Institution Name</a>
-      </div>
-      <div class="pub-links">
-        <a aria-disabled="true">
+      <div class="hero-authors">Anonymous Authors</div>
+      <figure class="paper-figure hero-figure">
+        <img src="assets/paper-figures/teaser-v9.png" alt="Overview of multisensory continual learning with backward transfer, forward transfer, and force prediction.">
+      </figure>
+      <p class="hero-punch">A pretrained vision-action robot policy can learn a new sense after pretraining, using limited force data to improve contact-rich tasks without forgetting old visual skills.</p>
+      <div class="pub-links anon-links">
+        <a class="btn-disabled" aria-disabled="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Paper
+          Paper withheld
         </a>
-        <a aria-disabled="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          arXiv
-        </a>
-        <a aria-disabled="true">
+        <a class="btn-disabled" aria-disabled="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          Code
+          Code withheld
         </a>
-      </div>
-      <div class="hero-scroll-row">
-        <div class="hero-scroll-cta">
-          <a href="#abstract" class="scroll-arrow hero-scroll-arrow" aria-label="Scroll to Abstract">
-            <svg width="30" height="30" viewBox="0 0 30 30"><polyline points="7,12 15,20 23,12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <span class="scroll-hint">Scroll to view more</span>
-        </div>
       </div>
     </div>
   </section>
 
   <section id="abstract" class="content-section">
-    <div class="section-inner">
+    <div class="section-inner narrow">
       <h2 class="section-heading reveal">Abstract</h2>
-      <div class="section-body reveal speed-template-body">
-        <p>abstract here</p>
+      <div class="section-body reveal">
+        <p>Robot manipulation often depends on sensory data beyond vision, especially in contact-rich tasks where force, tactile, or audio feedback reveals interaction states not directly visible from images. Yet these modalities are hardware- and task-specific, and large multisensory datasets remain scarce, making it impractical to pretrain policies with every sensor they may encounter.</p>
+        <p>We study <strong>multisensory continual learning</strong>: adapting a pretrained robot policy to new tasks with newly introduced modalities while preserving performance under the original sensor suite. We propose <strong>MuSe</strong>, which integrates limited multisensory data into pretrained vision-action policies using token-level multi-stage fusion, multisensory future prediction, and episodic recall on pretraining data.</p>
+        <p>Instantiated with force-torque sensing, MuSe improves contact-rich finetuning tasks, predicts force on pretraining tasks where force supervision was never used, and improves performance on original pretraining tasks after multisensory finetuning.</p>
       </div>
     </div>
-    <a href="#method" class="scroll-arrow" aria-label="Scroll to Method">
-      <svg width="30" height="30" viewBox="0 0 30 30"><polyline points="7,12 15,20 23,12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
   </section>
 
   <section id="method" class="content-section">
     <div class="section-inner">
       <h2 class="section-heading reveal">Method</h2>
-      <div class="section-body reveal speed-template-body">
-        <p>method here</p>
+      <div class="method-layout reveal">
+        <figure class="paper-figure">
+          <img src="assets/paper-figures/method.png" alt="MuSe architecture with early fusion, future video, action, and force-torque prediction, and adaptive compliance deployment.">
+          <figcaption><strong>MuSe</strong> extends a pretrained vision-action world model with a new sensor modality, using force-torque sensing as the concrete case study.</figcaption>
+        </figure>
+        <div class="method-copy section-body">
+          <div class="method-points">
+            <div>
+              <h3>Multi-stage fusion</h3>
+              <p>Force histories are encoded into the same token space as images, proprioception, language, and actions for early transformer-level interaction, then injected again through late cross-attention adapters.</p>
+            </div>
+            <div>
+              <h3>Multisensory future prediction</h3>
+              <p>The model predicts future actions, future visual observations, and future F/T signals, encouraging a shared representation grounded in both visual dynamics and contact.</p>
+            </div>
+            <div>
+              <h3>Episodic recall</h3>
+              <p>Finetuning mixes new multisensory data with the original pretraining data. Missing force inputs are masked, preserving old skills while adding the new modality.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <a href="#results" class="scroll-arrow" aria-label="Scroll to Results">
-      <svg width="30" height="30" viewBox="0 0 30 30"><polyline points="7,12 15,20 23,12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
   </section>
 
   <section id="results" class="content-section">
     <div class="section-inner">
-      <h2 class="section-heading reveal">Results</h2>
-      <div class="section-body reveal speed-template-body">
-        <p>results here</p>
+      <h2 class="section-heading reveal">Dataset and Key Results</h2>
+      <div class="result-grid reveal">
+        <figure class="paper-figure result-wide">
+          <img src="assets/paper-figures/experiments_12.png" alt="Pretraining and finetuning task sets with bar-chart results for backward and forward transfer.">
+          <figcaption>Pretraining uses 1,271 vision-action episodes across 21 tasks. Finetuning adds 434 force-labeled episodes across 5 contact-rich tasks.</figcaption>
+        </figure>
+        <div class="metric-card">
+          <span class="metric-value">11.5 / 15</span>
+          <span class="metric-label">vase wiping success</span>
+          <p>MuSe outperforms the no-force baseline on curved-surface contact regulation.</p>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value">13 / 15</span>
+          <span class="metric-label">finetuning peg insertion</span>
+          <p>Force feedback helps recover from jams in high-friction insertion.</p>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value">12.5 / 15</span>
+          <span class="metric-label">whiteboard wiping transfer</span>
+          <p>Multisensory finetuning improves an original pretraining task instead of merely preserving it.</p>
+        </div>
       </div>
 
-      <div class="tab-nav reveal" id="results-tabs">
-        <button class="tab-btn active" data-tab="results-1" type="button">Results 1</button>
-        <button class="tab-btn" data-tab="results-2" type="button">Results 2</button>
-        <button class="tab-btn" data-tab="results-3" type="button">Results 3</button>
-      </div>
-
-      <div class="tab-panel active template-result-panel" id="tab-results-1">
-        <details class="spd-collapse" open>
-          <summary class="spd-subhead">Qualitative Results</summary>
-          <div class="section-body">
-            <p>results here</p>
-          </div>
-          <details class="spd-collapse" open>
-            <summary class="spd-subsubhead">Qualitative Subsection 1</summary>
-            <div class="section-body">
-              <p>results here</p>
-            </div>
-          </details>
-          <details class="spd-collapse" open>
-            <summary class="spd-subsubhead">Qualitative Subsection 2</summary>
-            <div class="section-body">
-              <p>results here</p>
-            </div>
-          </details>
-        </details>
-        <details class="spd-collapse" open>
-          <summary class="spd-subhead">Quantitative Results</summary>
-          <div class="section-body">
-            <p>results here</p>
-          </div>
-          <div class="spd-table-wrap">
-            <table class="spd-table">
-              <thead>
-                <tr>
-                  <th>Method</th>
-                  <th>Metric 1</th>
-                  <th>Metric 2</th>
-                  <th>Metric 3</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Baseline</td>
-                  <td>--</td>
-                  <td>--</td>
-                  <td>--</td>
-                </tr>
-                <tr class="ours">
-                  <td>Ours</td>
-                  <td>--</td>
-                  <td>--</td>
-                  <td>--</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </details>
-      </div>
-
-      <div class="tab-panel template-result-panel" id="tab-results-2">
-        <details class="spd-collapse" open>
-          <summary class="spd-subhead">Qualitative Results</summary>
-          <div class="section-body">
-            <p>results here</p>
-          </div>
-          <details class="spd-collapse" open>
-            <summary class="spd-subsubhead">Qualitative Subsection 1</summary>
-            <div class="section-body">
-              <p>results here</p>
-            </div>
-          </details>
-          <details class="spd-collapse" open>
-            <summary class="spd-subsubhead">Qualitative Subsection 2</summary>
-            <div class="section-body">
-              <p>results here</p>
-            </div>
-          </details>
-        </details>
-        <details class="spd-collapse" open>
-          <summary class="spd-subhead">Quantitative Results</summary>
-          <div class="section-body">
-            <p>results here</p>
-          </div>
-          <div class="spd-table-wrap">
-            <table class="spd-table">
-              <thead>
-                <tr>
-                  <th>Method</th>
-                  <th>Metric 1</th>
-                  <th>Metric 2</th>
-                  <th>Metric 3</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Baseline</td>
-                  <td>--</td>
-                  <td>--</td>
-                  <td>--</td>
-                </tr>
-                <tr class="ours">
-                  <td>Ours</td>
-                  <td>--</td>
-                  <td>--</td>
-                  <td>--</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </details>
-      </div>
-
-      <div class="tab-panel template-result-panel" id="tab-results-3">
-        <details class="spd-collapse" open>
-          <summary class="spd-subhead">Qualitative Results</summary>
-          <div class="section-body">
-            <p>results here</p>
-          </div>
-          <details class="spd-collapse" open>
-            <summary class="spd-subsubhead">Qualitative Subsection 1</summary>
-            <div class="section-body">
-              <p>results here</p>
-            </div>
-          </details>
-          <details class="spd-collapse" open>
-            <summary class="spd-subsubhead">Qualitative Subsection 2</summary>
-            <div class="section-body">
-              <p>results here</p>
-            </div>
-          </details>
-        </details>
-        <details class="spd-collapse" open>
-          <summary class="spd-subhead">Quantitative Results</summary>
-          <div class="section-body">
-            <p>results here</p>
-          </div>
-          <div class="spd-table-wrap">
-            <table class="spd-table">
-              <thead>
-                <tr>
-                  <th>Method</th>
-                  <th>Metric 1</th>
-                  <th>Metric 2</th>
-                  <th>Metric 3</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Baseline</td>
-                  <td>--</td>
-                  <td>--</td>
-                  <td>--</td>
-                </tr>
-                <tr class="ours">
-                  <td>Ours</td>
-                  <td>--</td>
-                  <td>--</td>
-                  <td>--</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </details>
+      <div class="result-grid reveal compact-results">
+        <figure class="paper-figure">
+          <img src="assets/paper-figures/bar_new.png" alt="Cross-modal force-torque prediction ablation bar chart.">
+          <figcaption>Cross-modal F/T prediction is strongest with full MuSe: L2 error 8.42 versus 12.38 without replay.</figcaption>
+        </figure>
       </div>
     </div>
-    <a href="#bibtex" class="scroll-arrow" aria-label="Scroll to BibTeX">
-      <svg width="30" height="30" viewBox="0 0 30 30"><polyline points="7,12 15,20 23,12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+  </section>
+
+  <section id="rollouts" class="content-section">
+    <div class="section-inner">
+      <h2 class="section-heading reveal">Rollout Videos</h2>
+      <div class="video-placeholder-grid reveal">
+        <div class="video-slot">
+          <span>Vase wiping</span>
+        </div>
+        <div class="video-slot">
+          <span>Peg insertion</span>
+        </div>
+        <div class="video-slot">
+          <span>Backward transfer</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why-ft" class="content-section">
+    <div class="section-inner narrow">
+      <h2 class="section-heading reveal">Why F/T?</h2>
+      <div class="section-body reveal why-copy">
+        <p>Force-torque sensing exposes the physical interaction state that images often hide: contact onset, slippage, jamming, excessive normal force, and surface compliance.</p>
+        <p>That makes F/T especially useful for <strong>wiping</strong>, where success depends on applying enough force without exceeding safety limits, and <strong>peg insertion</strong>, where the robot must detect jams and adjust rather than pushing blindly. The surprising result is broader: with the right objective and replay, limited force-labeled data can improve the original vision-only task distribution too.</p>
+      </div>
+    </div>
   </section>
 
   <section id="bibtex" class="content-section">
-    <div class="section-inner">
+    <div class="section-inner narrow">
       <h2 class="section-heading reveal">BibTeX</h2>
       <div class="reveal">
-        <pre class="bibtex-block"><code>bibtex here</code></pre>
+        <pre class="bibtex-block"><code>@inproceedings{anonymous2026multisensory,
+  title     = {Multisensory Continual Learning: Adapting Pretrained Visuomotor Policies to Force},
+  author    = {Anonymous Authors},
+  booktitle = {Conference on Robot Learning},
+  year      = {2026}
+}</code></pre>
       </div>
     </div>
   </section>
 
   <footer class="site-footer">
-    <p>Website created using the template <a href="https://github.com/howardhx/website_template/" target="_blank" rel="noopener">here</a>.</p>
+    <p>Anonymous project page for review.</p>
   </footer>
 
   <script>
@@ -321,15 +211,6 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
-
-    document.querySelectorAll('#results-tabs .tab-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        document.querySelectorAll('#results-tabs .tab-btn').forEach(item => item.classList.remove('active'));
-        document.querySelectorAll('#results .tab-panel').forEach(panel => panel.classList.remove('active'));
-        button.classList.add('active');
-        document.getElementById(`tab-${button.dataset.tab}`).classList.add('active');
-      });
-    });
 
     window.addEventListener('scroll', updateNav, { passive: true });
     updateNav();
