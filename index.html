@@ -580,11 +580,17 @@
     document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
 
     function prepareRolloutVideo(video) {
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
       video.defaultPlaybackRate = 3;
       video.playbackRate = 3;
       video.addEventListener('loadedmetadata', () => {
         video.defaultPlaybackRate = 3;
         video.playbackRate = 3;
+        if (video.closest('.rollout-panel.active')) {
+          video.play().catch(() => {});
+        }
       });
       video.addEventListener('play', () => {
         video.playbackRate = 3;
@@ -598,6 +604,7 @@
       }
       video.defaultPlaybackRate = 3;
       video.playbackRate = 3;
+      video.play().catch(() => {});
     }
 
     function loadPanelVideos(panel) {
