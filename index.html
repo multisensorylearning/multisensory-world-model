@@ -161,17 +161,17 @@
                 <div class="rollout-video-grid">
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/forward/vase_wiping/ours_orange.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/vase_wiping/ours_orange.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Erases an unseen orange drawing while keeping contact on the vase.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/forward/vase_wiping/ours_middle.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/vase_wiping/ours_middle.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Tracks the middle surface and regulates pressure through the wipe.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/forward/vase_wiping/ours_big.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/vase_wiping/ours_big.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Handles a larger vase variation while maintaining contact.</p>
                   </div>
                 </div>
@@ -181,17 +181,17 @@
                 <div class="rollout-video-grid">
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">No F/T input</span>
-                    <video src="assets/rollouts/forward/vase_wiping/no_ft_weak.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/vase_wiping/no_ft_weak.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Applies too little force, leaving the drawing partially unerased.</p>
                   </div>
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">No Pretraining</span>
-                    <video src="assets/rollouts/forward/vase_wiping/no_pretrain_fail.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/vase_wiping/no_pretrain_fail.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Is less robust to different drawing appearances and vase variations.</p>
                   </div>
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">No F/T input</span>
-                    <video src="assets/rollouts/forward/vase_wiping/no_ft_stuck.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/vase_wiping/no_ft_stuck.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Gets stuck against the vase after reaching the F/T safety limit.</p>
                   </div>
                 </div>
@@ -210,17 +210,17 @@
                 <div class="rollout-video-grid">
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/forward/peg_insertion/ours_back_tilt.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/peg_insertion/ours_back_tilt.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Adapts to a backward-tilted hole and completes insertion.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/forward/peg_insertion/ours_forward_tilt.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/peg_insertion/ours_forward_tilt.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Uses contact feedback to keep moving after initial resistance.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/forward/peg_insertion/ours_back.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/peg_insertion/ours_back.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Recovers from contact and completes the narrow insertion.</p>
                   </div>
                 </div>
@@ -230,27 +230,27 @@
                 <div class="rollout-video-grid">
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">No F/T input</span>
-                    <video src="assets/rollouts/forward/peg_insertion/no_ft_stuck.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/peg_insertion/no_ft_stuck.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Gets stuck after contact because the policy cannot infer the jam state.</p>
                   </div>
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">No Pretraining</span>
-                    <video src="assets/rollouts/forward/peg_insertion/no_pretrain_drops.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/peg_insertion/no_pretrain_drops.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Drops or mishandles the peg before solving the contact-rich insertion.</p>
                   </div>
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">No F/T input</span>
-                    <video src="assets/rollouts/forward/peg_insertion/no_ft_back_fall.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/peg_insertion/no_ft_back_fall.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Falls out of the hole after contact because force state is missing.</p>
                   </div>
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">No F/T input</span>
-                    <video src="assets/rollouts/forward/peg_insertion/no_ft_tall_stuck.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/peg_insertion/no_ft_tall_stuck.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Stalls against high friction instead of adapting insertion direction.</p>
                   </div>
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">No Pretraining</span>
-                    <video src="assets/rollouts/forward/peg_insertion/no_pretrain_misses.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/peg_insertion/no_pretrain_misses.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Misses the insertion target under task variation.</p>
                   </div>
                 </div>
@@ -269,27 +269,27 @@
                 <div class="rollout-video-grid">
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/forward/pick_and_place/ours_distractor.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/pick_and_place/ours_distractor.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Successful pick and place: can in bowl despite distractors.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/forward/pick_and_place/ours_red.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/pick_and_place/ours_red.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Successful pick and place: can in bowl under object variation.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/forward/pick_and_place/no_ft_success_lr.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/pick_and_place/no_ft_success_lr.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Successful pick and place: can in bowl when contact is not the bottleneck.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/forward/pick_and_place/ours_lr.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/pick_and_place/ours_lr.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Successful pick and place: can in bowl.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/forward/pick_and_place/ours_easy.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/pick_and_place/ours_easy.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Successful pick and place: can in bowl after multisensory finetuning.</p>
                   </div>
                 </div>
@@ -299,12 +299,12 @@
                 <div class="rollout-video-grid">
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">No Pretraining</span>
-                    <video src="assets/rollouts/forward/pick_and_place/no_pretrain_distractor_fail.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/pick_and_place/no_pretrain_distractor_fail.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Struggles with distractors and task variation without broad visual pretraining.</p>
                   </div>
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">No Pretraining</span>
-                    <video src="assets/rollouts/forward/pick_and_place/no_pretrain_red.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/forward/pick_and_place/no_pretrain_red.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Shows weaker robustness on the red object variation.</p>
                   </div>
                 </div>
@@ -341,22 +341,22 @@
                 <div class="rollout-video-grid">
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/backward/whiteboard_wiping/ours_back_right.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/whiteboard_wiping/ours_back_right.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Erases a shifted drawing while maintaining useful pressure.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/backward/whiteboard_wiping/ours_pickup.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/whiteboard_wiping/ours_pickup.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Picks up the eraser first, then completes the wiping behavior.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/backward/whiteboard_wiping/ours_back.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/whiteboard_wiping/ours_back.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Maintains enough pressure on a back-positioned drawing.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/backward/whiteboard_wiping/ours_middle_back.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/whiteboard_wiping/ours_middle_back.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Preserves the original wiping skill under shifted board geometry.</p>
                   </div>
                 </div>
@@ -366,22 +366,22 @@
                 <div class="rollout-video-grid">
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">Pretrain Only</span>
-                    <video src="assets/rollouts/backward/whiteboard_wiping/pretrain_stuck.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/whiteboard_wiping/pretrain_stuck.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Attempts the task but gets stuck or applies ineffective contact.</p>
                   </div>
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">No ER</span>
-                    <video src="assets/rollouts/backward/whiteboard_wiping/no_er_back.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/whiteboard_wiping/no_er_back.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Forgets the original wiping behavior after multisensory finetuning.</p>
                   </div>
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">Pretrain Only</span>
-                    <video src="assets/rollouts/backward/whiteboard_wiping/pretrain_not_hard.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/whiteboard_wiping/pretrain_not_hard.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Finds the task structure but applies too little useful force.</p>
                   </div>
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">No ER</span>
-                    <video src="assets/rollouts/backward/whiteboard_wiping/no_er_middle.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/whiteboard_wiping/no_er_middle.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Drifts from the pretrained wiping behavior without replay.</p>
                   </div>
                 </div>
@@ -400,22 +400,22 @@
                 <div class="rollout-video-grid">
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/backward/peg_insertion/ours_red_green.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/peg_insertion/ours_red_green.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Inserts a red peg in a green hole, a task seen in pretraining but not finetuning.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/backward/peg_insertion/ours_purple.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/peg_insertion/ours_purple.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Handles a purple peg by reacting to contact during insertion.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/backward/peg_insertion/ours_purple2.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/peg_insertion/ours_purple2.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Repeats successful purple-peg insertion under a second rollout.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/backward/peg_insertion/ours_rpg_good.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/peg_insertion/ours_rpg_good.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Preserves the red-peg-in-green-hole strategy from pretraining after F/T finetuning.</p>
                   </div>
                 </div>
@@ -425,22 +425,22 @@
                 <div class="rollout-video-grid">
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">Pretrain Only</span>
-                    <video src="assets/rollouts/backward/peg_insertion/pretrain_miss.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/peg_insertion/pretrain_miss.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Misses or stalls because vision-only control lacks contact recovery.</p>
                   </div>
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">No ER</span>
-                    <video src="assets/rollouts/backward/peg_insertion/no_er_twist.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/peg_insertion/no_er_twist.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Overfits to finetuning-specific twisting and loses the old strategy.</p>
                   </div>
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">Pretrain Only</span>
-                    <video src="assets/rollouts/backward/peg_insertion/pretrain_purple_fail.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/peg_insertion/pretrain_purple_fail.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Fails on the purple peg without the newly learned contact signal.</p>
                   </div>
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">No ER</span>
-                    <video src="assets/rollouts/backward/peg_insertion/no_er_purple_fail.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/peg_insertion/no_er_purple_fail.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Loses robust pretraining behavior on the purple-peg variant.</p>
                   </div>
                 </div>
@@ -459,32 +459,32 @@
                 <div class="rollout-video-grid">
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/backward/pick_and_place/pepper_plate.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/pick_and_place/pepper_plate.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Task: place the pepper on the plate.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/backward/pick_and_place/pepper_pot.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/pick_and_place/pepper_pot.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Task: place the pepper in the pot.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/backward/pick_and_place/pepper_pot_forward2.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/pick_and_place/pepper_pot_forward2.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Task: place the pepper in the pot.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/backward/pick_and_place/pepper_pot_lr3.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/pick_and_place/pepper_pot_lr3.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Task: place the pepper in the pot.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/backward/pick_and_place/pepper_plate_lr.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/pick_and_place/pepper_plate_lr.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Task: place the pepper on the plate.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video src="assets/rollouts/backward/pick_and_place/pepper_plate_lr2.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/pick_and_place/pepper_plate_lr2.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Task: place the pepper on the plate.</p>
                   </div>
                 </div>
@@ -494,7 +494,7 @@
                 <div class="rollout-video-grid">
                   <div class="rollout-card failure-card">
                     <span class="baseline-tag">Failure example</span>
-                    <video src="assets/rollouts/backward/pick_and_place/grape_pot_fail.mp4" muted loop playsinline controls preload="metadata"></video>
+                    <video data-src="assets/rollouts/backward/pick_and_place/grape_pot_fail.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Fails to complete the object-goal placement under variation.</p>
                   </div>
                 </div>
@@ -579,7 +579,7 @@
 
     document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
 
-    document.querySelectorAll('video').forEach(video => {
+    function prepareRolloutVideo(video) {
       video.defaultPlaybackRate = 3;
       video.playbackRate = 3;
       video.addEventListener('loadedmetadata', () => {
@@ -589,7 +589,22 @@
       video.addEventListener('play', () => {
         video.playbackRate = 3;
       });
-    });
+    }
+
+    function loadRolloutVideo(video) {
+      if (!video.getAttribute('src') && video.dataset.src) {
+        video.setAttribute('src', video.dataset.src);
+        video.load();
+      }
+      video.defaultPlaybackRate = 3;
+      video.playbackRate = 3;
+    }
+
+    function loadPanelVideos(panel) {
+      panel.querySelectorAll('video').forEach(loadRolloutVideo);
+    }
+
+    document.querySelectorAll('video').forEach(prepareRolloutVideo);
 
     document.querySelectorAll('[data-rollout-carousel]').forEach(carousel => {
       const panels = Array.from(carousel.querySelectorAll('[data-rollout-panel]'));
@@ -610,6 +625,7 @@
         panels.forEach((panel, panelIndex) => {
           panel.classList.toggle('active', panelIndex === activeIndex);
         });
+        loadPanelVideos(panels[activeIndex]);
         if (counter) counter.textContent = `${activeIndex + 1} / ${panels.length}`;
         pauseInactiveVideos();
       }
