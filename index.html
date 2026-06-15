@@ -36,7 +36,7 @@
       <figure class="paper-figure hero-figure">
         <img src="assets/paper-figures/teaser-v9.png" alt="Overview of multisensory continual learning with backward transfer, forward transfer, and force prediction.">
       </figure>
-      <p class="hero-punch">A pretrained vision-action robot policy can learn a new sense after pretraining, using limited force data to improve contact-rich tasks without forgetting old visual skills.</p>
+      <p class="hero-punch">We show that pretrained visuomotor policies can learn to leverage new modalities in finetuning. Models trained with MuSe leverage limited force data to improve in contact-rich tasks seen during finetuning, in addition to improving performance on original tasks with no additional data.</p>
       <div class="pub-links anon-links">
         <a class="btn-disabled" aria-disabled="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -510,9 +510,9 @@
     <div class="section-inner narrow">
       <h2 class="section-heading reveal">Why F/T?</h2>
       <div class="section-body reveal why-copy">
-        <p>Force-torque sensing exposes the physical interaction state that images often hide: contact onset, slippage, jamming, excessive normal force, and surface compliance.</p>
+        <p>Force-torque sensing exposes  physical interactions that images cannot capture</p>
         <p>MuSe uses F/T in two complementary ways. As an <strong>input</strong>, force histories tell the policy when contact has started, whether the robot is pushing too hard, and when a peg has jammed. As an <strong>output</strong>, predicted future F/T gives the controller an expected contact profile that can be converted into adaptive compliance targets, so the robot can stay stiff in free space and become compliant when contact is anticipated.</p>
-        <p>That input-output loop is essential for contact-rich tasks. Wiping needs enough normal force to erase marks without hitting safety limits, while peg insertion needs force-aware recovery from friction and jams rather than blind pushing. The broader result is that limited F/T supervision can teach a pretrained visual policy a reusable contact representation.</p>
+        <p>We find that both F/T input and output is essential for contact-rich tasks. Wiping needs sufficient normal force to erase marks without hitting safety limits, while peg insertion needs to leverage force for recovery from friction and jams rather than blindly pushing.</p>
       </div>
     </div>
   </section>
