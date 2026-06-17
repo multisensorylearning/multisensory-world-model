@@ -451,51 +451,56 @@
           <article class="rollout-panel" data-rollout-panel data-task="Pick and Place">
             <div class="rollout-task-head">
               <h4>Pick and Place</h4>
-              <p>Pick-and-place tests whether multisensory finetuning preserves original visual manipulation skills when force is not the main bottleneck. MuSe maintains robustness to varying initial task configuration. </p>
+              <p>Pick-and-place tests whether multisensory finetuning preserves original visual manipulation skills when force is not the main bottleneck. <strong>MuSe</strong> maintains robustness to varying initial task configurations, while No ER forgets the original task behavior.</p>
             </div>
             <div class="rollout-comparison pick-place-layout">
               <div class="rollout-column success-column">
-                <h5>Preserved Skills</h5>
+                <h5><strong>MuSe</strong> Successes</h5>
                 <div class="rollout-video-grid">
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video data-src="assets/rollouts/backward/pick_and_place/pepper_plate.mp4" muted loop playsinline controls preload="none"></video>
+                    <video data-src="assets/rollouts/backward/pick_place_new/muse_pepper_pot_forward.mp4" muted loop playsinline controls preload="none"></video>
+                    <p>Task: place the pepper in the pot.</p>
+                  </div>
+                  <div class="rollout-card">
+                    <div class="success-mark" aria-label="success">✅</div>
+                    <video data-src="assets/rollouts/backward/pick_place_new/muse_pepper_pot_lr.mp4" muted loop playsinline controls preload="none"></video>
+                    <p>Task: place the pepper in the pot.</p>
+                  </div>
+                  <div class="rollout-card">
+                    <div class="success-mark" aria-label="success">✅</div>
+                    <video data-src="assets/rollouts/backward/pick_place_new/muse_pepper_plate_lr.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Task: place the pepper on the plate.</p>
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video data-src="assets/rollouts/backward/pick_and_place/pepper_pot.mp4" muted loop playsinline controls preload="none"></video>
-                    <p>Task: place the pepper in the pot.</p>
-                  </div>
-                  <div class="rollout-card">
-                    <div class="success-mark" aria-label="success">✅</div>
-                    <video data-src="assets/rollouts/backward/pick_and_place/pepper_pot_forward2.mp4" muted loop playsinline controls preload="none"></video>
-                    <p>Task: place the pepper in the pot.</p>
-                  </div>
-                  <div class="rollout-card">
-                    <div class="success-mark" aria-label="success">✅</div>
-                    <video data-src="assets/rollouts/backward/pick_and_place/pepper_pot_lr3.mp4" muted loop playsinline controls preload="none"></video>
-                    <p>Task: place the pepper in the pot.</p>
-                  </div>
-                  <div class="rollout-card">
-                    <div class="success-mark" aria-label="success">✅</div>
-                    <video data-src="assets/rollouts/backward/pick_and_place/pepper_plate_lr.mp4" muted loop playsinline controls preload="none"></video>
-                    <p>Task: place the pepper on the plate.</p>
-                  </div>
-                  <div class="rollout-card">
-                    <div class="success-mark" aria-label="success">✅</div>
-                    <video data-src="assets/rollouts/backward/pick_and_place/pepper_plate_lr2.mp4" muted loop playsinline controls preload="none"></video>
+                    <video data-src="assets/rollouts/backward/pick_place_new/muse_pepper_plate_lr2.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Task: place the pepper on the plate.</p>
                   </div>
                 </div>
               </div>
               <div class="rollout-column failure-column">
-                <h5>Failure Example</h5>
+                <h5>No ER Failures</h5>
                 <div class="rollout-video-grid">
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">Failure example</span>
-                    <video data-src="assets/rollouts/backward/pick_and_place/grape_pot_fail.mp4" muted loop playsinline controls preload="none"></video>
-                    <p>Fails to complete the object-goal placement under variation.</p>
+                    <span class="baseline-tag">No ER</span>
+                    <video data-src="assets/rollouts/backward/pick_place_new/no_er_pepper_pot_fail.mp4" muted loop playsinline controls preload="none"></video>
+                    <p>Forgets how to robustly place the pepper in the pot.</p>
+                  </div>
+                  <div class="rollout-card failure-card">
+                    <span class="baseline-tag">No ER</span>
+                    <video data-src="assets/rollouts/backward/pick_place_new/no_er_pepper_pot_fail2.mp4" muted loop playsinline controls preload="none"></video>
+                    <p>Lacks robustness to the pepper-in-pot configuration.</p>
+                  </div>
+                  <div class="rollout-card failure-card">
+                    <span class="baseline-tag">No ER</span>
+                    <video data-src="assets/rollouts/backward/pick_place_new/no_er_pepper_plate_fail_forward.mp4" muted loop playsinline controls preload="none"></video>
+                    <p>Forgets the original pepper-on-plate behavior after finetuning.</p>
+                  </div>
+                  <div class="rollout-card failure-card">
+                    <span class="baseline-tag">No ER</span>
+                    <video data-src="assets/rollouts/backward/pick_place_new/no_er_pepper_plate_lr_fail.mp4" muted loop playsinline controls preload="none"></video>
+                    <p>Loses robustness to the pepper-on-plate configuration.</p>
                   </div>
                 </div>
               </div>
