@@ -1666,6 +1666,27 @@ body.dark-mode .tab-nav {
   min-width: 210px;
 }
 
+.speed-badge {
+  align-self: center;
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-text-secondary);
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+  padding: 7px 10px;
+  white-space: nowrap;
+}
+
+.speed-badge.fast {
+  background: rgba(198, 40, 40, 0.08);
+  border-color: rgba(198, 40, 40, 0.34);
+  color: #a81f1f;
+}
+
 .rollout-task-head p {
   color: var(--color-text-secondary);
   font-size: 15px;
@@ -2190,6 +2211,10 @@ body.dark-mode.paper-page .content-section:nth-child(even) {
 
   .rollout-task-head h4 {
     min-width: 0;
+  }
+
+  .speed-badge {
+    justify-self: start;
   }
 
   .rollout-video-grid {

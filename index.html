@@ -154,7 +154,8 @@
           <article class="rollout-panel active" data-rollout-panel data-task="Vase Wiping">
             <div class="rollout-task-head">
               <h4>Vase Wiping</h4>
-              <p><strong>MuSe</strong> uses F/T histories to maintain enough contact on a curved vase while avoiding excessive force.</p>
+              <span class="speed-badge">3x playback</span>
+              <p>To wipe the vase, the policy leverages F/T sensing to sense when contact with the vase is made and adjusts its compliance to apply sufficient force to maintain contact and follow the curved surface, but not so much force that it jams into the vase and breaks the F/T limit set on the robot arm.</p>
             </div>
             <div class="rollout-comparison">
               <div class="rollout-column success-column">
@@ -203,7 +204,8 @@
           <article class="rollout-panel" data-rollout-panel data-task="Peg Insertion">
             <div class="rollout-task-head">
               <h4>Peg Insertion</h4>
-              <p><strong>MuSe</strong> predicts and conditions on force to detect jams, adjust motion, and continue insertion for angled high-friction holes.</p>
+              <span class="speed-badge">3x playback</span>
+              <p>The policy must fully insert the peg into a hole. The hole angle varies between ±20 degrees and contains high friction and serrations. This means the policy must leverage F/T feedback to assess the direction it must push into the hole and adjust its compliance to stay stiff in the direction of the hole but remain compliant in other directions. The policy can also leverage F/T feedback to find the hole if the initial insertion is imprecise.</p>
             </div>
             <div class="rollout-comparison">
               <div class="rollout-column success-column">
@@ -262,7 +264,8 @@
           <article class="rollout-panel" data-rollout-panel data-task="Pick and Place">
             <div class="rollout-task-head">
               <h4>Pick and Place</h4>
-              <p>Pick-and-place is less force-critical, so this task tests if adding F/T hurts visual generalization.</p>
+              <span class="speed-badge">3x playback</span>
+              <p>The policy must place the can in the bowl with various distractors and bowl color changes. The policy without pretraining struggles to generalize.</p>
             </div>
             <div class="rollout-comparison pick-place-layout">
               <div class="rollout-column success-column">
@@ -333,7 +336,8 @@
           <article class="rollout-panel active" data-rollout-panel data-task="Whiteboard Wiping">
             <div class="rollout-task-head">
               <h4>Whiteboard Wiping</h4>
-              <p><strong>MuSe</strong> transfers force-aware wiping back to the original whiteboard task, preserving task structure while improving contact regulation.</p>
+              <span class="speed-badge">3x playback</span>
+              <p>To erase the drawing, the policy leverages F/T sensing to sense when contact with the board is made and adjusts its compliance to apply sufficient force to erase the drawing, but not so much force that it jams into the table, moves the whiteboard, or breaks the F/T limit set on the robot arm.</p>
             </div>
             <div class="rollout-comparison">
               <div class="rollout-column success-column">
@@ -389,10 +393,11 @@
             </div>
           </article>
 
-          <article class="rollout-panel" data-rollout-panel data-task="Peg Insertion">
+          <article class="rollout-panel" data-rollout-panel data-task="Peg Insertion" data-speed="6">
             <div class="rollout-task-head">
               <h4>Peg Insertion</h4>
-              <p><strong>MuSe</strong> brings newly learned F/T prediction back to geometries from pretraining, helping recover from jams without losing visual task grounding.</p>
+              <span class="speed-badge fast">6x playback</span>
+              <p>The policy must leverage F/T sensing to adjust its compliance, find the direction of the hole, and release the peg from internal high-friction serrations. Backward transfer tests pegs with different sizes, shapes (rectangular and small cylindrical pegs that demand different strategies than the finetuning pegs), and colors to assess whether the model preserves strategies from pretraining that may interfere with finetuning strategies.</p>
             </div>
             <div class="rollout-comparison">
               <div class="rollout-column success-column">
@@ -451,7 +456,8 @@
           <article class="rollout-panel" data-rollout-panel data-task="Pick and Place">
             <div class="rollout-task-head">
               <h4>Pick and Place</h4>
-              <p>Pick-and-place tests whether multisensory finetuning preserves original visual manipulation skills when force is not the main bottleneck. <strong>MuSe</strong> maintains robustness to varying initial task configurations, while No ER forgets the original task behavior.</p>
+              <span class="speed-badge">3x playback</span>
+              <p>The policy must pick and place object configurations that exist in pretraining data but not in finetuning data. This assesses whether the model preserves generalization capabilities from pretraining.</p>
             </div>
             <div class="rollout-comparison pick-place-layout">
               <div class="rollout-column success-column">
@@ -584,21 +590,30 @@
 
     document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
 
+    function rolloutVideoSpeed(video) {
+      const panel = video.closest('[data-rollout-panel]');
+      return Number(video.dataset.speed || panel?.dataset.speed || 3);
+    }
+
+    function applyRolloutVideoSpeed(video) {
+      const speed = rolloutVideoSpeed(video);
+      video.defaultPlaybackRate = speed;
+      video.playbackRate = speed;
+    }
+
     function prepareRolloutVideo(video) {
       video.muted = true;
       video.loop = true;
       video.playsInline = true;
-      video.defaultPlaybackRate = 3;
-      video.playbackRate = 3;
+      applyRolloutVideoSpeed(video);
       video.addEventListener('loadedmetadata', () => {
-        video.defaultPlaybackRate = 3;
-        video.playbackRate = 3;
+        applyRolloutVideoSpeed(video);
         if (video.closest('.rollout-panel.active')) {
           video.play().catch(() => {});
         }
       });
       video.addEventListener('play', () => {
-        video.playbackRate = 3;
+        applyRolloutVideoSpeed(video);
       });
     }
 
@@ -607,8 +622,7 @@
         video.setAttribute('src', video.dataset.src);
         video.load();
       }
-      video.defaultPlaybackRate = 3;
-      video.playbackRate = 3;
+      applyRolloutVideoSpeed(video);
       video.play().catch(() => {});
     }
 
