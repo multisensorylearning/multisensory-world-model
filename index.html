@@ -13,7 +13,6 @@
   <nav class="nav-top">
     <div class="nav-inner">
       <a href="#hero" class="nav-link nav-home">Home</a>
-      <a href="#abstract" class="nav-link">Abstract</a>
       <a href="#method" class="nav-link">Method</a>
       <a href="#results" class="nav-link">Results</a>
       <a href="#rollouts" class="nav-link">Rollouts</a>
@@ -29,17 +28,16 @@
     <div class="hero-inner">
       <p class="venue-label">Anonymous CoRL 2026 Submission</p>
       <h1 class="hero-title" id="hero-title">
-        <span class="title-p1">Multisensory Continual Learning</span>
-        <span class="title-p2-wrap"><span class="title-p2">Adapting Pretrained Visuomotor Policies to Force</span></span>
+        <span class="title-p1">Multisensory Continual Learning:</span>
+        <span class="title-p2">Adapting Pretrained Visuomotor Policies to Force</span>
       </h1>
-      <div class="hero-provocation">
-        <p>Adding new sensor modalities is key for <strong class="hero-hot">contact-rich tasks</strong>, but we lack the data to scale <strong class="hero-cool">multisensory foundation models</strong>.</p>
-        <p>What if all our data <strong>doesn't need to contain multisensory observations?</strong> With <strong>MuSe</strong>, multitask visuomotor policies learn new modalities during finetuning with only a <strong class="hero-hot">fraction of the pretraining data</strong>.</p>
-      </div>
       <div class="hero-authors">Anonymous Authors</div>
       <figure class="paper-figure hero-figure">
         <img src="assets/paper-figures/teaser-v9.png" alt="Overview of multisensory continual learning with backward transfer, forward transfer, and force prediction.">
       </figure>
+      <div class="hero-provocation">
+        <p>Adding new sensor modalities is key for contact-rich tasks, but we lack the data to scale multisensory foundation models. <strong><em>What if all our data doesn't need to contain multisensory observations?</em></strong> With <span class="muse-gradient">MuSe</span>, multitask visuomotor policies <strong><em>learn new modalities during finetuning</em></strong> with only a fraction of the pretraining data.</p>
+      </div>
       <ul class="hero-punch hero-teaser-takeaways">
         <li>In addition to leveraging multisensory input and output on finetuning tasks for precise contact-rich interaction, models trained with <strong>MuSe</strong> demonstrate backward transfer: they leverage the new modality on pretraining tasks that do not exist in the minimal finetuning stage.</li>
         <li><strong>MuSe</strong> provides a pathway to training large-scale multisensory robot policies and world models with practical data composition: large amounts of visual pretraining data, robot vision-action data, and a small amount of diverse multisensory data such as force, tactile, or audio.</li>
@@ -53,21 +51,6 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           Code withheld
         </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="abstract" class="content-section">
-    <div class="section-inner narrow">
-      <h2 class="section-heading reveal">Abstract</h2>
-      <div class="section-body reveal">
-        <p>Robot manipulation often depends on sensory data beyond vision, especially in contact-rich tasks where force, tactile, or audio feedback reveals interaction states not directly visible from images. Yet these modalities are hardware- and task-specific, and large multisensory datasets remain scarce, making it impractical to pretrain policies with every sensor they may encounter.</p>
-        <p>We study <strong>multisensory continual learning</strong>: adapting a pretrained robot policy to new tasks with newly introduced modalities while preserving performance under the original sensor suite. We propose <strong>MuSe</strong>, which integrates limited multisensory data into pretrained vision-action policies using token-level multi-stage fusion, multisensory future prediction, and episodic recall on pretraining data. We find that <strong>MuSe</strong>:</p>
-        <ul class="abstract-takeaways">
-          <li>Improves contact-rich finetuning tasks that benefit from force feedback.</li>
-          <li>Predicts force on pretraining tasks where force supervision was never used.</li>
-          <li>Improves performance on original pretraining tasks after multisensory finetuning.</li>
-        </ul>
       </div>
     </div>
   </section>
@@ -256,11 +239,6 @@
                     <p>Gets stuck after contact due to high forces.</p>
                   </div>
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No Pretraining</span>
-                    <video data-src="assets/rollouts/forward/peg_insertion/no_pretrain_drops.mp4" muted loop playsinline controls preload="none"></video>
-                    <p>Fails to generalize to narrower peg and drops before insertion.</p>
-                  </div>
-                  <div class="rollout-card failure-card">
                     <span class="baseline-tag">No F/T input</span>
                     <video data-src="assets/rollouts/forward/peg_insertion/no_ft_back_fall.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Breaks F/T limit during insertion..</p>
@@ -284,7 +262,7 @@
             </div>
           </article>
 
-          <article class="rollout-panel" data-rollout-panel data-task="Pick and Place">
+          <article class="rollout-panel pick-place-forward-panel" data-rollout-panel data-task="Pick and Place">
             <div class="rollout-task-head">
               <h4>Pick and Place</h4>
               <span class="speed-badge">3x playback</span>
@@ -311,11 +289,6 @@
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video data-src="assets/rollouts/forward/pick_and_place/ours_lr.mp4" muted loop playsinline controls preload="none"></video>
-                    <p>Robustness to object configurations</p>
-                  </div>
-                  <div class="rollout-card">
-                    <div class="success-mark" aria-label="success">✅</div>
                     <video data-src="assets/rollouts/forward/pick_and_place/ours_easy.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Robustness to object configurations</p>
                   </div>
@@ -337,6 +310,8 @@
                     <video data-src="assets/rollouts/forward/pick_and_place/no_pretrain_red.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Decreased performance under visual changes.</p>
                   </div>
+                  <div class="rollout-card rollout-spacer" aria-hidden="true"></div>
+                  <div class="rollout-card rollout-spacer" aria-hidden="true"></div>
                 </div>
                 <ul class="rollout-summary failure-summary">
                   <li>Fail with distractors and visual changes (No Pretraining).</li>
