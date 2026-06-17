@@ -32,11 +32,18 @@
         <span class="title-p1">Multisensory Continual Learning</span>
         <span class="title-p2-wrap"><span class="title-p2">Adapting Pretrained Visuomotor Policies to Force</span></span>
       </h1>
+      <div class="hero-provocation">
+        <p>Adding new sensor modalities is key for <strong class="hero-hot">contact-rich tasks</strong>, but we lack the data to scale <strong class="hero-cool">multisensory foundation models</strong>.</p>
+        <p>What if all our data <strong>doesn't need to contain multisensory observations?</strong> With <strong>MuSe</strong>, multitask visuomotor policies learn new modalities during finetuning with only a <strong class="hero-hot">fraction of the pretraining data</strong>.</p>
+      </div>
       <div class="hero-authors">Anonymous Authors</div>
       <figure class="paper-figure hero-figure">
         <img src="assets/paper-figures/teaser-v9.png" alt="Overview of multisensory continual learning with backward transfer, forward transfer, and force prediction.">
       </figure>
-      <p class="hero-punch">We show that pretrained visuomotor policies can learn to leverage new modalities in finetuning. Models trained with <strong>MuSe</strong> leverage limited force data to improve in contact-rich tasks seen during finetuning, in addition to improving performance on original tasks with no additional data.</p>
+      <ul class="hero-punch hero-teaser-takeaways">
+        <li>In addition to leveraging multisensory input and output on finetuning tasks for precise contact-rich interaction, models trained with <strong>MuSe</strong> demonstrate backward transfer: they leverage the new modality on pretraining tasks that do not exist in the minimal finetuning stage.</li>
+        <li><strong>MuSe</strong> provides a pathway to training large-scale multisensory robot policies and world models with practical data composition: large amounts of visual pretraining data, robot vision-action data, and a small amount of diverse multisensory data such as force, tactile, or audio.</li>
+      </ul>
       <div class="pub-links anon-links">
         <a class="btn-disabled" aria-disabled="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -177,6 +184,10 @@
                     <p>Generalize to a larger eraser without applying too much force. </p>
                   </div>
                 </div>
+                <ul class="rollout-summary success-summary">
+                  <li>Use force feedback to maintain contact with the curved vase.</li>
+                  <li>Adjust compliance to maintain forceful but safe contact across drawing configurations and colors.</li>
+                </ul>
               </div>
               <div class="rollout-column failure-column">
                 <h5>Baseline Failures</h5>
@@ -197,6 +208,10 @@
                     <p>Gets stuck against the vase after reaching the F/T safety limit.</p>
                   </div>
                 </div>
+                <ul class="rollout-summary failure-summary">
+                  <li>Apply insufficient force and fail to maintain contact with the vase (No F/T input).</li>
+                  <li>Apply too much force and break the F/T limit, or fail to generalize to unseen drawings (No F/T input / No Pretraining).</li>
+                </ul>
               </div>
             </div>
           </article>
@@ -227,6 +242,10 @@
                     <p>Identify correct hole orientation and fully insert peg.</p>
                   </div>
                 </div>
+                <ul class="rollout-summary success-summary">
+                  <li>Use F/T feedback to precisely insert the peg, identify hole angle, and escape serrations.</li>
+                  <li>Generalize to different peg sizes.</li>
+                </ul>
               </div>
               <div class="rollout-column failure-column">
                 <h5>Baseline Failures</h5>
@@ -257,6 +276,10 @@
                     <p>Misses the insertion target.</p>
                   </div>
                 </div>
+                <ul class="rollout-summary failure-summary">
+                  <li>Fail to insert the peg or identify the angle of the hole (No F/T input).</li>
+                  <li>Jam, get stuck, or drop the smaller peg instead of adapting to the new peg size (No F/T input / No Pretraining).</li>
+                </ul>
               </div>
             </div>
           </article>
@@ -297,6 +320,9 @@
                     <p>Robustness to object configurations</p>
                   </div>
                 </div>
+                <ul class="rollout-summary success-summary">
+                  <li>Remain robust to visual changes and distractors.</li>
+                </ul>
               </div>
               <div class="rollout-column failure-column">
                 <h5>Failure Case</h5>
@@ -312,6 +338,9 @@
                     <p>Decreased performance under visual changes.</p>
                   </div>
                 </div>
+                <ul class="rollout-summary failure-summary">
+                  <li>Fail with distractors and visual changes (No Pretraining).</li>
+                </ul>
               </div>
             </div>
           </article>
@@ -364,6 +393,10 @@
                     <p>Erase drawings in varying locations.</p>
                   </div>
                 </div>
+                <ul class="rollout-summary success-summary">
+                  <li>Use F/T feedback to identify contact with the board.</li>
+                  <li>Accurate F/T predictions enable compliance adaptation for forceful but safe contact.</li>
+                </ul>
               </div>
               <div class="rollout-column failure-column">
                 <h5>Baseline Failures</h5>
@@ -389,6 +422,10 @@
                     <p>Forgets the original wiping behavior after multisensory finetuning.</p>
                   </div>
                 </div>
+                <ul class="rollout-summary failure-summary">
+                  <li>Break the F/T limit, jam into the board, or fail to detect board contact (Pretrain Only).</li>
+                  <li>Forget the task and fail after finetuning (No ER).</li>
+                </ul>
               </div>
             </div>
           </article>
@@ -424,6 +461,10 @@
                     <p>Regulate contact to insert small circular purple peg in white hole (configuration seen in pretraining but not finetuning).</p>
                   </div>
                 </div>
+                <ul class="rollout-summary success-summary">
+                  <li>Predict high-F/T interactions and adjust compliance to prevent jams.</li>
+                  <li>Leverage F/T feedback to precisely identify the hole.</li>
+                </ul>
               </div>
               <div class="rollout-column failure-column">
                 <h5>Baseline Failures</h5>
@@ -449,6 +490,10 @@
                     <p>Loses robust pretraining behavior and drifts away from hole.</p>
                   </div>
                 </div>
+                <ul class="rollout-summary failure-summary">
+                  <li>Break the F/T limit by jamming into serrations in the hole (Pretrain Only).</li>
+                  <li>Exploit a twisting strategy that works for circular pegs during finetuning but fails with rectangular pegs from pretraining (No ER).</li>
+                </ul>
               </div>
             </div>
           </article>
@@ -484,6 +529,9 @@
                     <p>Correctly place the pepper on the plate.</p>
                   </div>
                 </div>
+                <ul class="rollout-summary success-summary">
+                  <li>Adapt to various object configurations.</li>
+                </ul>
               </div>
               <div class="rollout-column failure-column">
                 <h5>No ER Failures</h5>
@@ -509,6 +557,9 @@
                     <p>Forgets task structure from pretraining.</p>
                   </div>
                 </div>
+                <ul class="rollout-summary failure-summary">
+                  <li>Forget task structure or lose robustness on pretraining tasks (No ER).</li>
+                </ul>
               </div>
             </div>
           </article>
