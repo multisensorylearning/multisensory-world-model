@@ -1430,27 +1430,14 @@ body.dark-mode .tab-nav {
 }
 
 .metric-card-featured {
-  border-color: rgba(0, 113, 227, 0.45);
-  box-shadow: 0 14px 34px rgba(0, 113, 227, 0.12);
+  background: linear-gradient(145deg, rgba(0, 113, 227, 0.12), var(--color-card-bg) 58%);
+  border-color: rgba(0, 73, 150, 0.42);
+  box-shadow: 0 16px 36px rgba(0, 73, 150, 0.13);
   position: relative;
 }
 
-.metric-card-featured::before {
-  background: var(--color-accent);
-  border-radius: 999px;
-  color: #fff;
-  content: "Key backward-transfer result";
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  margin-bottom: 14px;
-  padding: 5px 10px;
-  text-transform: uppercase;
-}
-
 .metric-card-featured .metric-value {
-  color: var(--color-accent);
+  color: #004996;
   font-size: clamp(2.4rem, 4vw, 3.7rem);
 }
 
@@ -1494,6 +1481,30 @@ body.dark-mode .tab-nav {
   padding-top: 30px;
 }
 
+.abstract-takeaways,
+.feature-bullets {
+  color: var(--color-text);
+  display: grid;
+  gap: 10px;
+  list-style-position: outside;
+  margin: 8px 0 0 22px;
+}
+
+.abstract-takeaways li,
+.feature-bullets li {
+  padding-left: 2px;
+}
+
+.feature-kicker {
+  color: #004996;
+  font-size: clamp(16px, 1.65vw, 22px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
 .feature-copy h3 {
   color: var(--color-text);
   font-size: clamp(1.25rem, 2.1vw, 1.8rem);
@@ -1505,6 +1516,10 @@ body.dark-mode .tab-nav {
   color: var(--color-text-secondary);
   font-size: 15px;
   line-height: 1.65;
+}
+
+.feature-copy p:not(.rollout-kicker):not(.feature-kicker) {
+  margin-bottom: 12px;
 }
 
 .video-placeholder-grid {
@@ -1526,7 +1541,7 @@ body.dark-mode .tab-nav {
 
 .rollout-stack {
   display: grid;
-  gap: 34px;
+  gap: 44px;
 }
 
 .rollout-intro {
@@ -1539,7 +1554,7 @@ body.dark-mode .tab-nav {
 
 .rollout-carousel {
   border-top: 1px solid var(--color-border);
-  padding-top: 26px;
+  padding-top: 30px;
 }
 
 .rollout-header,
@@ -1564,6 +1579,27 @@ body.dark-mode .tab-nav {
   color: var(--color-text);
   font-size: clamp(1.25rem, 2.2vw, 1.85rem);
   line-height: 1.2;
+}
+
+.rollout-transfer-title {
+  font-size: clamp(1.45rem, 2.7vw, 2.35rem);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.forward-transfer-title {
+  background: linear-gradient(90deg, #893700, #d86613);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.backward-transfer-title {
+  background: linear-gradient(90deg, #0b2f66, #1c5c9f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .rollout-controls {
@@ -1641,7 +1677,7 @@ body.dark-mode .tab-nav {
 .rollout-comparison {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 22px;
+  gap: 28px;
 }
 
 .rollout-column {
@@ -1649,7 +1685,7 @@ body.dark-mode .tab-nav {
   border: 1px solid var(--color-border-light);
   border-radius: 8px;
   min-width: 0;
-  padding: 16px;
+  padding: 18px;
 }
 
 .rollout-column h5 {
@@ -1666,13 +1702,13 @@ body.dark-mode .tab-nav {
 }
 
 .failure-column h5 {
-  color: #ad4e2c;
+  color: #c62828;
 }
 
 .rollout-video-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: 18px;
 }
 
 .rollout-card {
@@ -1700,11 +1736,11 @@ body.dark-mode .tab-nav {
 
 .rollout-card p {
   color: var(--color-text-secondary);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.45;
   margin: 0;
-  min-height: 70px;
-  padding: 10px 12px 12px;
+  min-height: 78px;
+  padding: 12px 14px 14px;
 }
 
 .success-mark,
@@ -2105,6 +2141,15 @@ body.dark-mode .rollout-arrow {
 
 .paper-page .content-section:nth-child(even) {
   background: var(--color-bg-alt);
+}
+
+#rollouts .section-inner {
+  max-width: 1480px;
+}
+
+.paper-page #rollouts.content-section {
+  padding-left: clamp(18px, 4vw, 64px);
+  padding-right: clamp(18px, 4vw, 64px);
 }
 
 body.dark-mode.paper-page .content-section:nth-child(even) {
