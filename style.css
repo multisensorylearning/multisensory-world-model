@@ -1858,7 +1858,8 @@ body.dark-mode .hero-teaser-takeaways li::before {
   visibility: hidden;
 }
 
-.rollout-card video {
+.rollout-card video,
+.rollout-card img {
   width: 100%;
   aspect-ratio: 16 / 9;
   display: block;
