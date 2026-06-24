@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Multisensory Continual Learning</title>
   <meta name="description" content="Anonymous project page for multisensory continual learning in robot manipulation.">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
   <script>if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark-mode-pending')</script>
   <style>.dark-mode-pending body{background:#000;color:#f5f5f7}</style>
@@ -16,7 +17,7 @@
       <a href="#method" class="nav-link">Method</a>
       <a href="#results" class="nav-link">Results</a>
       <a href="#rollouts" class="nav-link">Rollouts</a>
-      <a href="#why-ft" class="nav-link">Why F/T?</a>
+      <a href="#why-ft" class="nav-link">Q&amp;A</a>
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
         <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -33,15 +34,18 @@
       </h1>
       <div class="hero-authors">Anonymous Authors</div>
       <figure class="paper-figure hero-figure">
-        <img src="assets/paper-figures/teaser-v9.png" alt="Overview of multisensory continual learning with backward transfer, forward transfer, and force prediction.">
+        <video autoplay loop muted playsinline style="width:calc(100% + 12px); margin-left:-6px; display:block;">
+          <source src="assets/intro.mp4" type="video/mp4">
+        </video>
       </figure>
-      <div class="hero-provocation">
-        <p>Adding new sensor modalities is key for contact-rich tasks, but we lack the data to scale multisensory foundation models. <strong><em>What if all our data doesn't need to contain multisensory observations?</em></strong><br>With <span class="muse-gradient">MuSe</span>, multitask visuomotor policies <strong><em>learn new modalities during finetuning</em></strong> with only a fraction of the pretraining data.</p>
+      <div class="hero-intro-text">
+        <p>Adding new sensor modalities is key for contact-rich tasks, but we lack the data to scale multisensory foundation models. <strong><em>What if all our data doesn't need to contain multisensory observations?</em></strong> With <span class="muse-gradient">MuSe</span>, multitask visuomotor policies <strong><em>learn new modalities during finetuning</em></strong> with only a fraction of the pretraining data. We find MuSe:</p>
+        <ul class="hero-find-list">
+          <li><em>improves</em> visual generalization from broad-scale pretraining (<strong>forward transfer</strong>)</li>
+          <li>leverages new modality to improve on pretraining tasks that do not exist in minimal finetuning stage (<strong>backward transfer</strong>)</li>
+        </ul>
+        <p><span class="muse-gradient">MuSe</span> provides a <strong><em>scalable pathway</em></strong> to training large-scale multisensory robot policies and world models with practical data composition: large amounts of visual pretraining data, robot vision-action data, and a small amount of diverse multisensory data such as force, tactile, or audio.</p>
       </div>
-      <ul class="hero-punch hero-teaser-takeaways">
-        <li>In addition to leveraging multisensory input and output on finetuning tasks for precise contact-rich interaction, models trained with <strong>MuSe</strong> demonstrate backward transfer: they leverage the new modality on pretraining tasks that do not exist in the minimal finetuning stage.</li>
-        <li><strong>MuSe</strong> provides a pathway to training large-scale multisensory robot policies and world models with practical data composition: large amounts of visual pretraining data, robot vision-action data, and a small amount of diverse multisensory data such as force, tactile, or audio.</li>
-      </ul>
       <div class="pub-links anon-links">
         <a class="btn-disabled" aria-disabled="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -55,101 +59,102 @@
     </div>
   </section>
 
+
+
   <section id="method" class="content-section">
     <div class="section-inner">
-      <h2 class="section-heading reveal">Method</h2>
-      <div class="method-layout reveal">
-        <figure class="paper-figure">
-          <img src="assets/paper-figures/method.png" alt="MuSe architecture with early fusion, future video, action, and force-torque prediction, and adaptive compliance deployment.">
-          <figcaption><strong>MuSe</strong> extends a pretrained vision-action world model with a new sensor modality, using force-torque sensing as the concrete case study.</figcaption>
+      <h2 class="section-heading method-heading reveal">How does MuSe work?</h2>
+      <figure class="paper-figure method-video-figure reveal">
+        <video autoplay loop muted playsinline style="width:100%; display:block; border-radius:6px;">
+          <source src="assets/method.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <div class="method-intro section-body reveal">
+        <p>Incorporating new modalities requires the model to <strong><em>reason over new input dimensions, without either over-relying on or ignoring them.</em></strong> This requires an algorithm that <strong><em>avoids catastrophic forgetting of knowledge acquired during pretraining</em></strong> while properly incorporating new input modalities through an effective cross-modal representation. We design MuSe to achieve this using three key mechanisms:</p>
+      </div>
+      <div class="method-bottom reveal">
+        <ul class="method-points">
+          <li>
+            <span class="method-num">1</span>
+            <div><strong>Multisensory Prediction Targets:</strong> The model predicts future actions, future visual observations, and future F/T signals, encouraging a shared representation grounded in both visual dynamics and contact.</div>
+          </li>
+          <li>
+            <span class="method-num">2</span>
+            <div><strong>Multi-stage (early + late) fusion:</strong> Language, images, and actions are combined with <strong>token concatenation</strong> (early fusion). F/T conditioning is further amplified <strong>via cross-attention adapters</strong> (late fusion).</div>
+          </li>
+          <li>
+            <span class="method-num">3</span>
+            <div><strong>Experience replay:</strong> Finetuning mixes new multisensory data with the original pretraining data. The original pretraining data does not contain F/T inputs, so we use <strong>optional masking in replay</strong> when F/T is not available. This enables preserving old skills while adding the new modality.</div>
+          </li>
+        </ul>
+        <figure class="paper-figure method-detail-figure">
+          <img src="assets/paper-figures/method_detail.png" alt="MuSe method detail figure.">
         </figure>
-        <div class="method-copy section-body">
-          <div class="method-points">
-            <div>
-              <h3>Multi-stage fusion</h3>
-              <p>Force histories are encoded into the same token space as images, proprioception, language, and actions for early transformer-level interaction, then injected again through late cross-attention adapters.</p>
-            </div>
-            <div>
-              <h3>Multisensory future prediction</h3>
-              <p>The model predicts future actions, future visual observations, and future F/T signals, encouraging a shared representation grounded in both visual dynamics and contact.</p>
-            </div>
-            <div>
-              <h3>Episodic recall</h3>
-              <p>Finetuning mixes new multisensory data with the original pretraining data. Missing force inputs are masked, preserving old skills while adding the new modality.</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
+
+
   <section id="results" class="content-section">
     <div class="section-inner">
-      <h2 class="section-heading reveal">Dataset and Key Results</h2>
-      <div class="result-grid reveal">
-        <figure class="paper-figure result-wide">
-          <img src="assets/paper-figures/experiments_12.png" alt="Pretraining and finetuning task sets with bar-chart results for backward and forward transfer.">
-          <figcaption>Pretraining uses 1,271 vision-action episodes across 21 tasks. Finetuning adds 434 force-labeled episodes across 5 contact-rich tasks.</figcaption>
+      <h2 class="section-heading method-heading reveal">How is MuSe trained and evaluated?</h2>
+      <div class="dataset-layout reveal">
+        <figure class="paper-figure dataset-figure">
+          <img src="assets/paper-figures/ew2_v2.svg" alt="Dataset overview: 1,271 pretraining episodes across 21 tasks and 434 force-labeled finetuning episodes across 5 contact-rich tasks." style="width:100%; display:block;">
         </figure>
-        <div class="metric-card">
-          <span class="metric-value">+35%</span>
-          <span class="metric-label">forward contact-rich transfer</span>
-          <p>On vase wiping and finetuning peg insertion, <strong>MuSe</strong> improves from 46.7% to 81.7% success over the No F/T input baseline.</p>
-        </div>
-        <div class="metric-card metric-card-featured">
-          <span class="metric-value">+20%</span>
-          <span class="metric-label">improved backward transfer</span>
-          <p>On original contact-rich tasks, <strong>MuSe</strong> improves from 55.0% to 75.0% success over the pretrained vision-only policy.</p>
-        </div>
+        <p class="dataset-caption">Pretraining uses 1,271 vision-action episodes across 21 tasks. Finetuning adds 434 force-labeled episodes across 5 contact-rich tasks.</p>
       </div>
+      <div class="method-intro section-body reveal">
+        <p>We evaluate MuSe in the context of <strong>multisensory continual learning</strong>: the challenge of extending a pretrained policy to incorporate new sensory modalities for new tasks, while retaining performance on the original tasks. To do so we evaluate <strong>representation learning</strong>, <strong>forward transfer</strong> (performance on finetuning tasks), and <strong>backward transfer</strong> (performance on pretraining tasks with new sensor modality).</p>
+      </div>
+      <figure class="paper-figure results-overview-figure reveal">
+        <img src="assets/paper-figures/results2.svg" alt="Results overview." style="width:100%; display:block;">
+      </figure>
+    </div>
+  </section>
 
+
+
+  <section id="crossmodal" class="content-section">
+    <div class="section-inner">
+      <h2 class="section-heading method-heading reveal">Does MuSe learn effective cross-modal representations?</h2>
       <div class="ft-prediction-feature reveal">
         <div class="feature-copy">
-          <p class="feature-kicker">Cross-Modal Generalization</p>
           <h3><strong>MuSe</strong> predicts force where force was never supervised.</h3>
           <p>After learning from limited multisensory finetuning data, <strong>MuSe</strong> can predict F/T traces on pretraining tasks that only used vision-action supervision.</p>
           <ul class="feature-bullets">
             <li><strong>Shared multisensory representation:</strong> F/T prediction on unlabeled pretraining tasks suggests the model learns a shared multisensory representation that transfers beyond the finetuning distribution.</li>
-            <li><strong>Adaptive compliance at runtime:</strong> predicted future F/T provides a contact profile that can set compliance targets during deployment.</li>
+            <li><strong><a href="https://adaptive-compliance.github.io/" target="_blank" rel="noopener">Adaptive compliance</a> at runtime:</strong> predicted future F/T provides a contact profile that can set compliance targets during deployment.</li>
           </ul>
         </div>
         <figure class="paper-figure">
-          <img src="assets/paper-figures/crossmodal_c.png" alt="Predicted force-torque curves on pretraining tasks compared with ground truth.">
+          <video src="assets/paper-figures/crossmodal.mp4" autoplay loop muted playsinline></video>
           <figcaption>Orange curves show <strong>MuSe</strong> force predictions aligned with measured F/T signals on pretraining tasks where force labels were withheld during training.</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
+
+
   <section id="rollouts" class="content-section">
     <div class="section-inner">
-      <h2 class="section-heading reveal">Rollout Videos</h2>
-      <div class="rollout-stack reveal">
+      <h2 class="section-heading method-heading forward-transfer-title reveal">MuSe leverages F/T sensing to improve on finetuning tasks</h2>
+      <p class="section-stat-line reveal">+35% over baselines without F/T on contact-rich finetuning tasks</p>
+      <div class="rollout-section-wrap reveal">
         <div class="rollout-carousel" data-rollout-carousel>
-          <div class="rollout-header">
-            <div>
-              <h3 class="rollout-transfer-title forward-transfer-title">Forward Transfer</h3>
-            </div>
-            <div class="rollout-controls">
-              <button class="rollout-arrow" type="button" aria-label="Previous forward transfer task" data-rollout-prev>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-              </button>
-              <span class="rollout-counter" data-rollout-counter>1 / 3</span>
-              <button class="rollout-arrow" type="button" aria-label="Next forward transfer task" data-rollout-next>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              </button>
-            </div>
-          </div>
-
           <article class="rollout-panel active" data-rollout-panel data-task="Vase Wiping">
             <div class="rollout-task-head">
-              <h4>Vase Wiping</h4>
-              <span class="speed-badge">3x playback</span>
+              <p class="task-head-name"><span class="task-head-left"><strong>Vase Wiping</strong><span class="speed-badge">3x playback</span></span><span class="rollout-controls"><button class="rollout-arrow" type="button" aria-label="Previous task" data-rollout-prev><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button><span class="rollout-counter" data-rollout-counter>1 / 3</span><button class="rollout-arrow" type="button" aria-label="Next task" data-rollout-next><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button></span></p>
               <p>To wipe the vase, the policy leverages F/T sensing to sense when contact with the vase is made and adjusts its compliance to apply sufficient force to maintain contact and follow the curved surface, but not so much force that it jams into the vase and breaks the F/T limit set on the robot arm.</p>
             </div>
             <div class="rollout-comparison">
               <div class="rollout-column success-column">
-                <h5><strong>MuSe</strong> Successes</h5>
+                <div class="rollout-column-heading">
+                  <h5>MuSe</h5>
+                  <span class="success-rate">77% success</span>
+                </div>
                 <div class="rollout-video-grid">
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
@@ -166,34 +171,45 @@
                     <video data-src="assets/rollouts/forward/vase_wiping/ours_big.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Generalize to a larger eraser without applying too much force. </p>
                   </div>
+                  <div class="rollout-card">
+                    <div class="success-mark" aria-label="success">✅</div>
+                    <video data-src="assets/rollouts/forward/vase_wiping/muse_big_eraser_success.mp4" muted loop playsinline controls preload="none"></video>
+                    <p>Successfully wipes the vase with a larger eraser while maintaining safe contact.</p>
+                  </div>
                 </div>
                 <ul class="rollout-summary success-summary">
                   <li>Use force feedback to maintain contact with the curved vase.</li>
                   <li>Adjust compliance to maintain forceful but safe contact across drawing configurations and colors.</li>
                 </ul>
               </div>
-              <div class="rollout-column failure-column">
-                <h5>Baseline Failures</h5>
+              <div class="rollout-column baseline-column dual-baseline">
+                <div class="rollout-column-heading baseline-heading">
+                  <div class="method-rates">
+                    <span><strong>No Pretrain</strong> 53%</span>
+                    <span><strong>No F/T</strong> 33%</span>
+                  </div>
+                </div>
                 <div class="rollout-video-grid">
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No F/T input</span>
-                    <video data-src="assets/rollouts/forward/vase_wiping/no_ft_weak.mp4" muted loop playsinline controls preload="none"></video>
-                    <p>Applies too little force, leaving the drawing partially unerased.</p>
-                  </div>
-                  <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No Pretraining</span>
                     <video data-src="assets/rollouts/forward/vase_wiping/no_pretrain_fail.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Less robust to different drawing appearances and vase variations.</p>
                   </div>
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No F/T input</span>
+                    <video data-src="assets/rollouts/forward/vase_wiping/no_ft_weak.mp4" muted loop playsinline controls preload="none"></video>
+                    <p>Applies too little force, leaving the drawing partially unerased.</p>
+                  </div>
+                  <div class="rollout-card failure-card">
+                    <video data-src="assets/rollouts/forward/vase_wiping/no_pretrain_orange_ood.mp4" muted loop playsinline controls preload="none"></video>
+                    <p>Fails to generalize to an out-of-distribution orange drawing.</p>
+                  </div>
+                  <div class="rollout-card failure-card">
                     <video data-src="assets/rollouts/forward/vase_wiping/no_ft_stuck.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Gets stuck against the vase after reaching the F/T safety limit.</p>
                   </div>
                 </div>
                 <ul class="rollout-summary failure-summary">
-                  <li>Apply insufficient force and fail to maintain contact with the vase (No F/T input).</li>
-                  <li>Apply too much force and break the F/T limit, or fail to generalize to unseen drawings (No F/T input / No Pretraining).</li>
+                  <li>Fail to generalize to unseen drawings and vase variations without pretraining.</li>
+                  <li>Apply insufficient force or exceed the F/T safety limit without force feedback.</li>
                 </ul>
               </div>
             </div>
@@ -201,13 +217,15 @@
 
           <article class="rollout-panel" data-rollout-panel data-task="Peg Insertion">
             <div class="rollout-task-head">
-              <h4>Peg Insertion</h4>
-              <span class="speed-badge">3x playback</span>
+              <p class="task-head-name"><span class="task-head-left"><strong>Peg Insertion</strong><span class="speed-badge">3x playback</span></span><span class="rollout-controls"><button class="rollout-arrow" type="button" aria-label="Previous task" data-rollout-prev><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button><span class="rollout-counter" data-rollout-counter>2 / 3</span><button class="rollout-arrow" type="button" aria-label="Next task" data-rollout-next><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button></span></p>
               <p>The policy must fully insert the peg into a hole. The hole angle varies between ±20 degrees and contains high friction and serrations. This means the policy must leverage F/T feedback to assess the direction it must push into the hole and adjust its compliance to stay stiff in the direction of the hole but remain compliant in other directions. The policy can also leverage F/T feedback to find the hole if the initial insertion is imprecise.</p>
             </div>
             <div class="rollout-comparison">
               <div class="rollout-column success-column">
-                <h5><strong>MuSe</strong> Successes</h5>
+                <div class="rollout-column-heading">
+                  <h5>MuSe</h5>
+                  <span class="success-rate">87% success</span>
+                </div>
                 <div class="rollout-video-grid">
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
@@ -235,33 +253,34 @@
                   <li>Generalize to different peg sizes.</li>
                 </ul>
               </div>
-              <div class="rollout-column failure-column">
-                <h5>Baseline Failures</h5>
+              <div class="rollout-column baseline-column dual-baseline">
+                <div class="rollout-column-heading baseline-heading">
+                  <div class="method-rates">
+                    <span><strong>No Pretrain</strong> 40%</span>
+                    <span><strong>No F/T</strong> 60%</span>
+                  </div>
+                </div>
                 <div class="rollout-video-grid">
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No F/T input</span>
-                    <video data-src="assets/rollouts/forward/peg_insertion/no_ft_stuck.mp4" muted loop playsinline controls preload="none"></video>
-                    <p>Gets stuck after contact due to high forces.</p>
-                  </div>
-                  <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No F/T input</span>
-                    <video data-src="assets/rollouts/forward/peg_insertion/no_ft_back_fall.mp4" muted loop playsinline controls preload="none"></video>
-                    <p>Breaks F/T limit during insertion..</p>
-                  </div>
-                  <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No F/T input</span>
-                    <video data-src="assets/rollouts/forward/peg_insertion/no_ft_tall_stuck.mp4" muted loop playsinline controls preload="none"></video>
-                    <p>Can't adapt compliance profile and breaks F/T limit on impact.</p>
-                  </div>
-                  <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No Pretraining</span>
                     <video data-src="assets/rollouts/forward/peg_insertion/no_pretrain_misses.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Misses the insertion target.</p>
                   </div>
+                  <div class="rollout-card failure-card">
+                    <video data-src="assets/rollouts/forward/peg_insertion/no_ft_back_fall.mp4" muted loop playsinline controls preload="none"></video>
+                    <p>Breaks the F/T limit during insertion.</p>
+                  </div>
+                  <div class="rollout-card failure-card">
+                    <video data-src="assets/rollouts/forward/peg_insertion/no_pretrain_stuck.mp4" muted loop playsinline controls preload="none"></video>
+                    <p>Gets stuck after contact due to high forces and struggles to generalize without pretraining.</p>
+                  </div>
+                  <div class="rollout-card failure-card">
+                    <video data-src="assets/rollouts/forward/peg_insertion/no_ft_tall_stuck.mp4" muted loop playsinline controls preload="none"></video>
+                    <p>Cannot adapt its compliance profile and breaks the F/T limit on impact.</p>
+                  </div>
                 </div>
                 <ul class="rollout-summary failure-summary">
-                  <li>Fail to insert the peg or identify the angle of the hole (No F/T input).</li>
-                  <li>Jam, get stuck, or drop the smaller peg instead of adapting to the new peg size (No F/T input / No Pretraining).</li>
+                  <li>Miss the insertion target or struggle to generalize without broad visual pretraining.</li>
+                  <li>Jam or get stuck without force feedback for contact-aware adaptation.</li>
                 </ul>
               </div>
             </div>
@@ -269,13 +288,15 @@
 
           <article class="rollout-panel pick-place-forward-panel" data-rollout-panel data-task="Pick and Place">
             <div class="rollout-task-head">
-              <h4>Pick and Place</h4>
-              <span class="speed-badge">3x playback</span>
+              <p class="task-head-name"><span class="task-head-left"><strong>Pick and Place</strong><span class="speed-badge">3x playback</span></span><span class="rollout-controls"><button class="rollout-arrow" type="button" aria-label="Previous task" data-rollout-prev><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button><span class="rollout-counter" data-rollout-counter>3 / 3</span><button class="rollout-arrow" type="button" aria-label="Next task" data-rollout-next><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button></span></p>
               <p>The policy must place the can in the bowl with various distractors and bowl color changes. The policy without pretraining struggles to generalize.</p>
             </div>
             <div class="rollout-comparison pick-place-layout">
               <div class="rollout-column success-column">
-                <h5>Successful Behavior</h5>
+                <div class="rollout-column-heading">
+                  <h5>MuSe</h5>
+                  <span class="success-rate">75% success</span>
+                </div>
                 <div class="rollout-video-grid">
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
@@ -289,7 +310,7 @@
                   </div>
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
-                    <video data-src="assets/rollouts/forward/pick_and_place/no_ft_success_lr.mp4" muted loop playsinline controls preload="none"></video>
+                    <video data-src="assets/rollouts/forward/pick_and_place/ours_lr.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Robustness to object configurations</p>
                   </div>
                   <div class="rollout-card">
@@ -302,55 +323,46 @@
                   <li>Remain robust to visual changes and distractors.</li>
                 </ul>
               </div>
-              <div class="rollout-column failure-column">
-                <h5>Failure Case</h5>
+              <div class="rollout-column baseline-column">
+                <div class="rollout-column-heading">
+                  <h5>No Pretrain</h5>
+                  <span class="success-rate">50% success</span>
+                </div>
                 <div class="rollout-video-grid">
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No Pretraining</span>
                     <video data-src="assets/rollouts/forward/pick_and_place/no_pretrain_distractor_fail.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Struggles with distractors and task variation without broad visual pretraining.</p>
                   </div>
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No Pretraining</span>
                     <video data-src="assets/rollouts/forward/pick_and_place/no_pretrain_red.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Decreased performance under visual changes.</p>
                   </div>
-                  <div class="rollout-card rollout-spacer" aria-hidden="true"></div>
-                  <div class="rollout-card rollout-spacer" aria-hidden="true"></div>
                 </div>
                 <ul class="rollout-summary failure-summary">
-                  <li>Fail with distractors and visual changes (No Pretraining).</li>
+                  <li>Fail with distractors and visual changes without pretraining.</li>
                 </ul>
               </div>
             </div>
           </article>
         </div>
 
-        <div class="rollout-carousel" data-rollout-carousel>
-          <div class="rollout-header">
-            <div>
-              <h3 class="rollout-transfer-title backward-transfer-title">Backward Transfer</h3>
-            </div>
-            <div class="rollout-controls">
-              <button class="rollout-arrow" type="button" aria-label="Previous backward transfer task" data-rollout-prev>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-              </button>
-              <span class="rollout-counter" data-rollout-counter>1 / 3</span>
-              <button class="rollout-arrow" type="button" aria-label="Next backward transfer task" data-rollout-next>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              </button>
-            </div>
-          </div>
+      </div>
 
+      <h2 class="section-heading method-heading backward-transfer-title reveal">MuSe improves performance on pretraining tasks</h2>
+      <p class="section-stat-line reveal">+20% over pretrained model on pretraining tasks</p>
+      <div class="rollout-section-wrap reveal">
+        <div class="rollout-carousel" data-rollout-carousel>
           <article class="rollout-panel active" data-rollout-panel data-task="Whiteboard Wiping">
             <div class="rollout-task-head">
-              <h4>Whiteboard Wiping</h4>
-              <span class="speed-badge">3x playback</span>
+              <p class="task-head-name"><span class="task-head-left"><strong>Whiteboard Wiping</strong><span class="speed-badge">3x playback</span></span><span class="rollout-controls"><button class="rollout-arrow" type="button" aria-label="Previous task" data-rollout-prev><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button><span class="rollout-counter" data-rollout-counter>1 / 3</span><button class="rollout-arrow" type="button" aria-label="Next task" data-rollout-next><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button></span></p>
               <p>To erase the drawing, the policy leverages F/T sensing to sense when contact with the board is made and adjusts its compliance to apply sufficient force to erase the drawing, but not so much force that it jams into the table, moves the whiteboard, or breaks the F/T limit set on the robot arm.</p>
             </div>
             <div class="rollout-comparison">
               <div class="rollout-column success-column">
-                <h5><strong>MuSe</strong> Successes</h5>
+                <div class="rollout-column-heading">
+                  <h5>MuSe</h5>
+                  <span class="success-rate">83% success</span>
+                </div>
                 <div class="rollout-video-grid">
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
@@ -378,33 +390,34 @@
                   <li>Accurate F/T predictions enable compliance adaptation for forceful but safe contact.</li>
                 </ul>
               </div>
-              <div class="rollout-column failure-column">
-                <h5>Baseline Failures</h5>
+              <div class="rollout-column baseline-column dual-baseline">
+                <div class="rollout-column-heading baseline-heading">
+                  <div class="method-rates">
+                    <span><strong>Pretrain Only</strong> 57%</span>
+                    <span><strong>No ER</strong> 3%</span>
+                  </div>
+                </div>
                 <div class="rollout-video-grid">
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">Pretrain Only</span>
                     <video data-src="assets/rollouts/backward/whiteboard_wiping/pretrain_stuck.mp4" muted loop playsinline controls preload="none"></video>
                     <p>No F/T feedback means the model cannot adapt its compliance - resulting in breaking F/T limit on contact.</p>
                   </div>
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No ER</span>
                     <video data-src="assets/rollouts/backward/whiteboard_wiping/no_er_back.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Forgets the original wiping behavior after multisensory finetuning.</p>
                   </div>
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">Pretrain Only</span>
                     <video data-src="assets/rollouts/backward/whiteboard_wiping/pretrain_not_hard.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Applies insufficient force (no F/T feedback means it cannot react to forces or adjust stiffness).</p>
                   </div>
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No ER</span>
                     <video data-src="assets/rollouts/backward/whiteboard_wiping/no_er_middle.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Forgets the original wiping behavior after multisensory finetuning.</p>
                   </div>
                 </div>
                 <ul class="rollout-summary failure-summary">
-                  <li>Break the F/T limit, jam into the board, or fail to detect board contact (Pretrain Only).</li>
-                  <li>Forget the task and fail after finetuning (No ER).</li>
+                  <li>Break the F/T limit, jam into the board, or fail to detect board contact.</li>
+                  <li>Forget the task and fail after finetuning.</li>
                 </ul>
               </div>
             </div>
@@ -412,13 +425,15 @@
 
           <article class="rollout-panel" data-rollout-panel data-task="Peg Insertion" data-speed="6">
             <div class="rollout-task-head">
-              <h4>Peg Insertion</h4>
-              <span class="speed-badge fast">6x playback</span>
+              <p class="task-head-name"><span class="task-head-left"><strong>Peg Insertion</strong><span class="speed-badge fast">6x playback</span></span><span class="rollout-controls"><button class="rollout-arrow" type="button" aria-label="Previous task" data-rollout-prev><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button><span class="rollout-counter" data-rollout-counter>2 / 3</span><button class="rollout-arrow" type="button" aria-label="Next task" data-rollout-next><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button></span></p>
               <p>The policy must leverage F/T sensing to adjust its compliance, find the direction of the hole, and release the peg from internal high-friction serrations. Backward transfer tests pegs with different sizes, shapes (rectangular and small cylindrical pegs that demand different strategies than the finetuning pegs), and colors to assess whether the model preserves strategies from pretraining that may interfere with finetuning strategies.</p>
             </div>
             <div class="rollout-comparison">
               <div class="rollout-column success-column">
-                <h5><strong>MuSe</strong> Successes</h5>
+                <div class="rollout-column-heading">
+                  <h5>MuSe</h5>
+                  <span class="success-rate">67% success</span>
+                </div>
                 <div class="rollout-video-grid">
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
@@ -446,33 +461,34 @@
                   <li>Leverage F/T feedback to precisely identify the hole.</li>
                 </ul>
               </div>
-              <div class="rollout-column failure-column">
-                <h5>Baseline Failures</h5>
+              <div class="rollout-column baseline-column dual-baseline">
+                <div class="rollout-column-heading baseline-heading">
+                  <div class="method-rates">
+                    <span><strong>Pretrain Only</strong> 53%</span>
+                    <span><strong>No ER</strong> 13%</span>
+                  </div>
+                </div>
                 <div class="rollout-video-grid">
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">Pretrain Only</span>
                     <video data-src="assets/rollouts/backward/peg_insertion/pretrain_miss.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Fails to leverage contact for proper insertion.</p>
                   </div>
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No ER</span>
                     <video data-src="assets/rollouts/backward/peg_insertion/no_er_twist.mp4" muted loop playsinline controls preload="none"></video>
-                    <p>Overfits to finetuning-specific twisting strategy (works for circular pegs but not rectangular pegs) and misses insertion.</p>
+                    <p>Overfits to a finetuning-specific twisting strategy and misses the rectangular peg insertion.</p>
                   </div>
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">Pretrain Only</span>
                     <video data-src="assets/rollouts/backward/peg_insertion/pretrain_purple_fail.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Model without contact signal fails to insert the purple peg.</p>
                   </div>
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No ER</span>
                     <video data-src="assets/rollouts/backward/peg_insertion/no_er_purple_fail.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Loses robust pretraining behavior and drifts away from hole.</p>
                   </div>
                 </div>
                 <ul class="rollout-summary failure-summary">
-                  <li>Break the F/T limit by jamming into serrations in the hole (Pretrain Only).</li>
-                  <li>Exploit a twisting strategy that works for circular pegs during finetuning but fails with rectangular pegs from pretraining (No ER).</li>
+                  <li>Jam into serrations or fail to use contact for insertion.</li>
+                  <li>Overfit to finetuning strategies that fail on pretraining peg configurations.</li>
                 </ul>
               </div>
             </div>
@@ -480,13 +496,15 @@
 
           <article class="rollout-panel" data-rollout-panel data-task="Pick and Place">
             <div class="rollout-task-head">
-              <h4>Pick and Place</h4>
-              <span class="speed-badge">3x playback</span>
+              <p class="task-head-name"><span class="task-head-left"><strong>Pick and Place</strong><span class="speed-badge">3x playback</span></span><span class="rollout-controls"><button class="rollout-arrow" type="button" aria-label="Previous task" data-rollout-prev><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button><span class="rollout-counter" data-rollout-counter>3 / 3</span><button class="rollout-arrow" type="button" aria-label="Next task" data-rollout-next><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button></span></p>
               <p>The policy must pick and place object configurations that exist in pretraining data but not in finetuning data. This assesses whether the model preserves generalization capabilities from pretraining.</p>
             </div>
             <div class="rollout-comparison pick-place-layout">
               <div class="rollout-column success-column">
-                <h5><strong>MuSe</strong> Successes</h5>
+                <div class="rollout-column-heading">
+                  <h5>MuSe</h5>
+                  <span class="success-rate">65% success</span>
+                </div>
                 <div class="rollout-video-grid">
                   <div class="rollout-card">
                     <div class="success-mark" aria-label="success">✅</div>
@@ -513,32 +531,31 @@
                   <li>Adapt to various object configurations.</li>
                 </ul>
               </div>
-              <div class="rollout-column failure-column">
-                <h5>No ER Failures</h5>
+              <div class="rollout-column baseline-column">
+                <div class="rollout-column-heading">
+                  <h5>No ER</h5>
+                  <span class="success-rate">55% success</span>
+                </div>
                 <div class="rollout-video-grid">
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No ER</span>
                     <video data-src="assets/rollouts/backward/pick_place_new/no_er_pepper_pot_fail.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Model trained without ER lacks robustness on pretraining tasks.</p>
                   </div>
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No ER</span>
                     <video data-src="assets/rollouts/backward/pick_place_new/no_er_pepper_pot_fail2.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Model trained without ER lacks robustness on pretraining tasks.</p>
                   </div>
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No ER</span>
                     <video data-src="assets/rollouts/backward/pick_place_new/no_er_pepper_plate_fail_forward.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Model trained without ER lacks robustness on pretraining tasks.</p>
                   </div>
                   <div class="rollout-card failure-card">
-                    <span class="baseline-tag">No ER</span>
                     <video data-src="assets/rollouts/backward/pick_place_new/no_er_pepper_plate_lr_fail.mp4" muted loop playsinline controls preload="none"></video>
                     <p>Forgets task structure from pretraining.</p>
                   </div>
                 </div>
                 <ul class="rollout-summary failure-summary">
-                  <li>Forget task structure or lose robustness on pretraining tasks (No ER).</li>
+                  <li>Forget task structure or lose robustness on pretraining tasks.</li>
                 </ul>
               </div>
             </div>
@@ -548,16 +565,43 @@
     </div>
   </section>
 
+
+
   <section id="why-ft" class="content-section">
     <div class="section-inner narrow">
-      <h2 class="section-heading reveal">Why F/T?</h2>
-      <div class="section-body reveal why-copy">
-        <p>Force-torque sensing exposes  physical interactions that images cannot capture</p>
-        <p><strong>MuSe</strong> uses F/T in two complementary ways. As an <strong>input</strong>, force histories tell the policy when contact has started, whether the robot is pushing too hard, and when a peg has jammed. As an <strong>output</strong>, predicted future F/T gives the controller an expected contact profile that can be converted into adaptive compliance targets, so the robot can stay stiff in free space and become compliant when contact is anticipated.</p>
-        <p>We find that both F/T input and output is essential for contact-rich tasks. Wiping needs sufficient normal force to erase marks without hitting safety limits, while peg insertion needs to leverage force for recovery from friction and jams rather than blindly pushing.</p>
+      <h2 class="section-heading method-heading reveal">Q&amp;A</h2>
+
+      <div class="qa-block reveal">
+        <h3 class="qa-question">Why F/T?</h3>
+        <div class="qa-answer qa-answer-split">
+          <div class="qa-text">
+            <p><strong>MuSe</strong> uses F/T in two complementary ways. As an <strong>input</strong>, force histories tell the policy when contact has started, whether the robot is pushing too hard, and when a peg has jammed. As an <strong>output</strong>, predicted future F/T gives the controller an expected contact profile that can be converted into <a href="https://adaptive-compliance.github.io/" target="_blank" rel="noopener">adaptive compliance</a> targets, so the robot can stay stiff in free space and become compliant when contact is anticipated. </p>
+            <p>We find that even despite imperfect F/T predictions, MuSe improves success rate on contact rich tasks — approximate magnitude and direction is all that is needed to improve forceful interactions.</p>
+          </div>
+          <figure class="paper-figure qa-video-figure">
+            <video src="assets/wbw_targets.mp4" autoplay muted loop playsinline controls style="width:100%; display:block; border-radius:8px;"></video>
+          </figure>
+        </div>
       </div>
+
+      <div class="qa-block reveal">
+        <h3 class="qa-question">Why care about backward transfer?</h3>
+        <div class="qa-answer">
+          <p>New sensor modality should <em>extend</em> a robot's capabilities, enabling the robot to continually adapt to new skills without forgetting old ones. Backward transfer confirms that MuSe representations generalize beyond the finetuning distribution — the model learns to use force not just on the tasks it was trained with, but also on the diverse set of pretraining tasks where no force labels existed.</p>
+        </div>
+      </div>
+
+      <div class="qa-block reveal">
+        <h3 class="qa-question">Why not train at once?</h3>
+        <div class="qa-answer">
+          <p>Sensors are constantly developing and existing large-scale pretraining datasets do not contain them. Re-collecting all pretraining data every time a new sensor becomes available is impractical at scale. MuSe is designed as a realistic framework to tackle this challenge: learn from large vision-action pretraining data, then incorporate new modalities through a small multisensory finetuning stage without starting over.</p>
+        </div>
+      </div>
+
     </div>
   </section>
+
+
 
   <section id="bibtex" class="content-section">
     <div class="section-inner narrow">
@@ -665,9 +709,6 @@
 
     document.querySelectorAll('[data-rollout-carousel]').forEach(carousel => {
       const panels = Array.from(carousel.querySelectorAll('[data-rollout-panel]'));
-      const prev = carousel.querySelector('[data-rollout-prev]');
-      const next = carousel.querySelector('[data-rollout-next]');
-      const counter = carousel.querySelector('[data-rollout-counter]');
       let activeIndex = 0;
 
       function pauseInactiveVideos() {
@@ -681,27 +722,80 @@
       function updateCarousel() {
         panels.forEach((panel, panelIndex) => {
           panel.classList.toggle('active', panelIndex === activeIndex);
+          const c = panel.querySelector('[data-rollout-counter]');
+          if (c) c.textContent = `${activeIndex + 1} / ${panels.length}`;
         });
         loadPanelVideos(panels[activeIndex]);
-        if (counter) counter.textContent = `${activeIndex + 1} / ${panels.length}`;
         pauseInactiveVideos();
+        equalizeRolloutCaptions(panels[activeIndex]);
       }
 
-      prev.addEventListener('click', () => {
-        activeIndex = (activeIndex - 1 + panels.length) % panels.length;
-        updateCarousel();
+      carousel.addEventListener('click', e => {
+        if (e.target.closest('[data-rollout-prev]')) {
+          activeIndex = (activeIndex - 1 + panels.length) % panels.length;
+          updateCarousel();
+        } else if (e.target.closest('[data-rollout-next]')) {
+          activeIndex = (activeIndex + 1) % panels.length;
+          updateCarousel();
+        }
       });
 
-      next.addEventListener('click', () => {
-        activeIndex = (activeIndex + 1) % panels.length;
-        updateCarousel();
-      });
+      function equalizeRolloutCaptions(panel) {
+        panel.querySelectorAll('.rollout-card p').forEach(p => { p.style.minHeight = ''; });
+        panel.querySelectorAll('.rollout-comparison').forEach(comparison => {
+          const grids = Array.from(comparison.querySelectorAll('.rollout-video-grid'));
+          if (grids.length < 2) return;
+          const cardSets = grids.map(g => Array.from(g.querySelectorAll('.rollout-card')));
+          const rows = Math.max(...cardSets.map(c => Math.ceil(c.length / 2)));
+          for (let row = 0; row < rows; row++) {
+            const captions = [];
+            cardSets.forEach(cards => {
+              [row * 2, row * 2 + 1].forEach(i => {
+                const p = cards[i]?.querySelector('p');
+                if (p) captions.push(p);
+              });
+            });
+            const maxH = Math.max(0, ...captions.map(p => p.scrollHeight));
+            captions.forEach(p => { p.style.minHeight = maxH + 'px'; });
+          }
+        });
+      }
 
       updateCarousel();
     });
 
     window.addEventListener('scroll', updateNav, { passive: true });
     updateNav();
+
+    let captionResizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(captionResizeTimer);
+      captionResizeTimer = setTimeout(() => {
+        document.querySelectorAll('[data-rollout-carousel]').forEach(carousel => {
+          const active = carousel.querySelector('[data-rollout-panel].active');
+          if (active) {
+            active.querySelectorAll('.rollout-card p').forEach(p => { p.style.minHeight = ''; });
+            active.querySelectorAll('.rollout-comparison').forEach(comparison => {
+              const grids = Array.from(comparison.querySelectorAll('.rollout-video-grid'));
+              if (grids.length < 2) return;
+              const cardSets = grids.map(g => Array.from(g.querySelectorAll('.rollout-card')));
+              const rows = Math.max(...cardSets.map(c => Math.ceil(c.length / 2)));
+              for (let row = 0; row < rows; row++) {
+                const captions = [];
+                cardSets.forEach(cards => {
+                  [row * 2, row * 2 + 1].forEach(i => {
+                    const p = cards[i]?.querySelector('p');
+                    if (p) captions.push(p);
+                  });
+                });
+                const maxH = Math.max(0, ...captions.map(p => p.scrollHeight));
+                captions.forEach(p => { p.style.minHeight = maxH + 'px'; });
+              }
+            });
+          }
+        });
+      }, 150);
+    });
   </script>
 </body>
 </html>
